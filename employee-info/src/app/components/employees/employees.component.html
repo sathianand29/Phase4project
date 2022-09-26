@@ -1,0 +1,73 @@
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Event Management</a>
+      
+        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#employeesModal" (click)="onAddClick();">Add Employee</button>
+
+    </div>
+  </nav>
+  <div class="container mt-2">
+    <table class="table table-hover tabel-striped table-responsive">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of employeesDetails">
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.salary}}</td>
+                <td>{{item.location}}</td>
+                <td>
+                    <button (click)="editEmployeesDetails(item)" data-bs-toggle="modal" data-bs-target="#employeesModal" class="btn btn-sm btn-secondary mx-2">Edit</button>
+                    <button (click)="deleteEmployeesDetails(item.id)" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="employeesModal" tabindex="-1" aria-labelledby="employeesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="employeesModalLabel">Employee Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="employeesForm">
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name" formControlName="name">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="example@gmail.com" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Salary</label>
+                <input type="text" class="form-control" placeholder="Enter your salary amount" formControlName="salary">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Location</label>
+                <input type="text" class="form-control" placeholder="Enter your location" formControlName="location">
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="close" (click)="reset();">Close</button>
+          <button type="button" class="btn btn-success" (click)="updateEmployeesDetails()" *ngIf="showUpdateBtn">Update Employee</button>
+
+          <button type="button" class="btn btn-success" (click)="postEmployeesDetails()" *ngIf="showAddBtn">Add Employee</button>
+        </div>
+      </div>
+    </div>
+  </div>
