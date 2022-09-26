@@ -1,0 +1,32 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Tim David",
+      "email": "timdavid@gmail.com",
+      "salary": 50000,
+      "location": "Singapore"
+    },
+    {
+      "id": 3,
+      "name": "Tom Cooper",
+      "email": "tomcooper@gmail.com",
+      "salary": "55000",
+      "location": "Washington"
+    },
+    {
+      "id": 4,
+      "name": "Brian Hendricks",
+      "email": "brianhendricks@gmail.com",
+      "salary": 45000,
+      "location": "London"
+    },
+    {
+      "id": 5,
+      "name": "Christopher Nolan",
+      "email": "chris@gmail.com",
+      "salary": "100000",
+      "location": "USA"
+    }
+  ]
+}
